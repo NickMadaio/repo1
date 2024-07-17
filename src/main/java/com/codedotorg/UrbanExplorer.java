@@ -72,9 +72,10 @@ public class UrbanExplorer {
     public Scene createMainScene() {
         Label titleLabel = new Label("Urban Explorer");
         Button addButton = createAddButton();
+        Button sortButton = createSortButton();
 
         VBox mainLayout = new VBox(10);
-        mainLayout.getChildren().addAll(titleLabel, inputField, addButton, listView);
+        mainLayout.getChildren().addAll(titleLabel, inputField, addButton, sortButton, listView);
 
         Scene mainScene = new Scene(mainLayout, width, height);
 
@@ -130,6 +131,17 @@ public class UrbanExplorer {
 
         tempButton.setOnAction(event -> {
             addCity();
+        });
+
+        return tempButton;
+    }
+
+    public Button createSortButton() {
+        Button tempButton = new Button("Sort Cities");
+
+        tempButton.setOnAction(event -> {
+            City.sortCities(cities);
+            refreshList();
         });
 
         return tempButton;
