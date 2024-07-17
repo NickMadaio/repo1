@@ -13,5 +13,4 @@ public class App extends Application {
         UrbanExplorer guide = new UrbanExplorer(primaryStage, 400, 400);
         guide.startApp();
     }
-
 }
